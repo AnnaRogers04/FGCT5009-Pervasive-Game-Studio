@@ -5,21 +5,79 @@
  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-    body {
-      background-image: url("https://github.com/user-attachments/assets/62d07149-d6b8-4567-858c-023a4f9125ae");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
+body {
+      background-color: #1CA698;
       margin: 0;
     }
-    </style>
-  <title>Hello</title>
+    h1 {
+      color: black;
+      font-family: 'Lucida Console', Monaco, monospace;
+      font-weight: bold;
+      font-size: 96px;
+    }
+    p {
+      font-family: 'Lucida Console', Monaco, monospace;
+      color: black;
+      font-weight: bold;
+      font-size: 48px;
+      margin: 0;
+    }
+    .banner {
+      background-color: #148F83;
+      border-top: 2px solid #1CA698;
+      border-bottom: 2px solid #0D6B62;
+      padding: 20px 30px;
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+      a.win98-link {
+      display: block;
+      font-family: 'Lucida Console', Monaco, monospace;
+      font-weight: bold;
+      font-size: 40px;
+      color: black;
+      text-decoration: none;
+      background-color: #c0c0c0;
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-bottom: 2px solid #808080;
+      border-right: 2px solid #808080;
+      padding: 15px 32px;
+      margin-bottom: 10px;
+      width: fit-content;
+      cursor: pointer;
+    }
+    a.win98-link:active {
+      border-top: 2px solid #808080;
+      border-left: 2px solid #808080;
+      border-bottom: 2px solid #ffffff;
+      border-right: 2px solid #ffffff;
+    }
+    @media (min-width: 769px) {
+      h1 {
+        font-size: 48px;
+      }
+      p {
+        font-size: 24px;
+      }
+      a.win98-link {
+        font-size: 20px;
+        padding: 10px 20px;
+      }
+    }
+  </style>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-  <h1>Hello</h1>
-  <p>Test page for cool stuff!</p>
+   <p>Welcome to our UCA location hunt, follow the clues and images to get to the final location!</p>
+  </div>
+
+  <div style="padding: 0 20px;">
+  <a class="win98-link" href="FirstLocation.html">Go to First Location</a>
+  <a class="win98-link" href="TerrierBooks.html">Go to Terrier Books</a>
+  </div>
   <a href="FirstLocation.html">Go to First Location</a>
   <a href="TerrierBooks.html">Go to Terrier Books</a>
 </body>
