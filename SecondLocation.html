@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Second Location</title>
+<title>Scavenger Hunt - Location 2</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -138,7 +138,6 @@
   }
 
   .image-frame:hover { transform: scale(1.02); }
-
   .image-frame img { width: 100%; display: block; }
 
   .image-caption {
@@ -196,27 +195,7 @@
     padding: 1px 9px 0 11px;
   }
 
-  .win98-btn.primary {
-    outline: 2px solid #000;
-  }
-
-  .status-bar {
-    display: flex;
-    gap: 4px;
-    padding: 2px 4px;
-    border-top: 1px solid #808080;
-    background: #c0c0c0;
-  }
-
-  .status-panel {
-    border-top: 1px solid #808080;
-    border-left: 1px solid #808080;
-    border-right: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    padding: 1px 6px;
-    font-size: 10px;
-    flex: 1;
-  }
+  .win98-btn.primary { outline: 2px solid #000; }
 
   .dialog-overlay {
     display: none;
@@ -254,10 +233,7 @@
     align-items: flex-start;
   }
 
-  .dialog-icon { font-size: 32px; flex-shrink: 0; }
-
   .dialog-text { font-size: 11px; line-height: 1.6; }
-
   .dialog-text strong { display: block; font-size: 13px; margin-bottom: 4px; }
 
   .dialog-footer {
@@ -313,8 +289,6 @@
       </div>
     </div>
 
-
-
   </div>
 </div>
 
@@ -362,17 +336,7 @@
 <!-- CORRECT DIALOG -->
 <div class="dialog-overlay" id="correct-dialog">
   <div class="dialog">
-    <div class="title-bar">
-      <div class="title-bar-text">
-        <span class="title-bar-icon" style="background:#00aa00; color:#fff;">&#10003;</span>
-        Location Confirmed!
-      </div>
-      <div class="title-bar-buttons">
-        <div class="win-btn" onclick="closeDialog('correct-dialog')">&#10005;</div>
-      </div>
-    </div>
     <div class="dialog-body">
-      <div class="dialog-icon">&#127942;</div>
       <div class="dialog-text">
         <strong>CORRECT LOCATION!</strong>
         You've identified the <strong>Motion Capture Room (B32)</strong>.
@@ -407,11 +371,9 @@
     if (!val) return;
     if (VALID_ANSWERS.includes(val)) {
       document.getElementById('correct-dialog').classList.add('visible');
-      document.getElementById('status-text').textContent = 'Answer accepted - Location confirmed!';
       input.style.background = '#ccffcc';
     } else {
       document.getElementById('wrong-dialog').classList.add('visible');
-      document.getElementById('status-text').textContent = 'Incorrect answer - try again';
       input.style.background = '#ffcccc';
       const win = document.getElementById('input-window');
       win.classList.add('shake');
@@ -428,8 +390,7 @@
   }
 
   function showHint() {
-    const hint = document.getElementById('hint-text');
-    hint.style.display = 'block';
+    document.getElementById('hint-text').style.display = 'block';
   }
 
   function revealClue() {
@@ -455,7 +416,7 @@
   document.getElementById('answer-input').addEventListener('input', () => {
     document.getElementById('answer-input').style.background = '#fff';
   });
-
 </script>
 </body>
+</html>
 </html>
