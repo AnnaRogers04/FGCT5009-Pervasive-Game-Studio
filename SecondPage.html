@@ -25,29 +25,212 @@
   display: inline-block;
   margin-bottom: 10px;
 }
-    }
-    .button {
-  border: none;
-  color: rgba(0, 0, 0, 0);
+p {
+  font-family: 'Courier New', monospace;
+  color: black;
+  font-weight: bold;
+  font-size: 48px;
+  margin: 0;
+}
+label {
+  font-family: 'Courier New', monospace;
+  color: black;
+  font-weight: bold;
+  font-size: 44px;
+}
+input {
+  font-family: 'Courier New', monospace;
+  color: black;
+  font-weight: bold;
+  font-size: 40px;
+  background-color: white;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+}
+.hints-button {
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #808080;
+  border-right: 2px solid #808080;
+  color: black;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 40px;
+  font-weight: bold;
   margin: 4px 2px;
   cursor: pointer;
+  background-color: #c0c0c0;
+  font-family: 'Courier New', monospace;
 }
-  .button1 {
-    background-color: rgba(0, 0, 0, 0);
-  } /* transparent */
-  </style>
-  <h1>Second Page</h1>
-  <p style="font-family:'Courier New'">Where is this?</p1>
- <form>
-  <label for="username">Location:</label>
+.hints-button:active {
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+}
+#submit-btn {
+  margin-top: 10px;
+  padding: 15px 32px;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  background-color: #c0c0c0;
+  color: black;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #808080;
+  border-right: 2px solid #808080;
+}
+#submit-btn:active {
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+}
+#image-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 15px;
+}
+#location-image {
+  display: block;
+  transition: filter 0.3s ease;
+}
+#location-image.hinted {
+  visibility: hidden;
+}
+#image-container.hinted {
+  background-color: #89CFF0;
+}
+#hint-text {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 28px;
+  text-align: center;
+  width: 80%;
+  pointer-events: none;
+  padding: 20px;
+}
+#hint-text.visible {
+  display: block;
+}
+#error-msg {
+  color: red;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 40px;
+  display: none;
+  margin-top: 5px;
+}
+#success-msg {
+  color: green;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 40px;
+  display: none;
+  margin-top: 5px;
+}
+/* Desktop only - scale down sizes */
+@media (min-width: 769px) {
+  h1 {
+    font-size: 48px;
+  }
+  p {
+    font-size: 24px;
+  }
+  label {
+    font-size: 22px;
+  }
+  input {
+    font-size: 20px;
+  }
+  .hints-button {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+  #submit-btn {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+  #error-msg {
+    font-size: 20px;
+  }
+  #success-msg {
+    font-size: 20px;
+  }
+  #hint-text {
+    font-size: 18px;
+  }
+}
+</style>
+</head>
+<body>
+<h1>First Location</h1>
+<div class="win98-panel">
+  <p>Where is this?</p>
+</div>
+
+<br><br>
+<div class="win98-panel">
+  <label for="Location">Location:</label>
   <input type="text" id="Location" name="Location" required>
- </form>
-  <button class="button button1">Green</button>
-  <img width="402" height="885" alt="Screenshot 2026-04-29 164243" src="https://github.com/user-attachments/assets/3b9b4144-f540-4cd6-9f41-dcafef1d0aea" />
+</div>
+
+<br>
+<button id="submit-btn" onclick="checkPassword()">Submit</button>
+<span id="error-msg">Incorrect location. Try again!</span>
+<span id="success-msg">Correct! Well done!</span>
+
+<br>
+<div id="image-container">
+  <img id="location-image" width="350" height="771" alt="Screenshot 2026-04-29 164243" src="https://github.com/user-attachments/assets/3b9b4144-f540-4cd6-9f41-dcafef1d0aea" />
+  <div id="hint-text">Somewhere upstairs, a narrow blue corridor, a red light may appear above the doorframe from time to time.</div>
+</div>
+
+<br><br>
+<button class="hints-button" onclick="toggleHint()">Hints</button>
+
+<script>
+const validPasswords = [
+  "journalism",
+  "journalism corridor",
+  "recording corridor",
+  "journalism hallway"
+];
+
+const input = document.getElementById("Location");
+const errorMsg = document.getElementById("error-msg");
+const successMsg = document.getElementById("success-msg");
+const locationImage = document.getElementById("location-image");
+const hintText = document.getElementById("hint-text");
+
+function checkPassword() {
+  const val = input.value.trim().toLowerCase();
+  if (validPasswords.includes(val)) {
+    errorMsg.style.display = "none";
+    successMsg.style.display = "inline";
+  } else {
+    successMsg.style.display = "none";
+    errorMsg.style.display = "inline";
+  }
+}
+
+function toggleHint() {
+  locationImage.classList.toggle("hinted");
+  document.getElementById("image-container").classList.toggle("hinted");
+  hintText.classList.toggle("visible");
+}
+</script>
 </body>
 </html>
