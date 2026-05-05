@@ -1,3 +1,6 @@
+<img width="1059" height="1610" alt="paper3" src="https://github.com/user-attachments/assets/62d07149-d6b8-4567-858c-023a4f9125ae" />
+<img width="1200" height="1555" alt="paper2" src="https://github.com/user-attachments/assets/e99ec523-d55f-4be7-9189-f897b6b2f5d0" />
+<img width="736" height="1308" alt="paper1" src="https://github.com/user-attachments/assets/58676b7e-409f-4a31-8a7c-3558b0439bd3" />
 
 <img width="402" height="885" alt="Screenshot 2026-04-29 164243" src="https://github.com/user-attachments/assets/3b9b4144-f540-4cd6-9f41-dcafef1d0aea" />
 <img width="407" height="892" alt="Screenshot 2026-04-30 163145" src="https://github.com/user-attachments/assets/fe7049c7-ac8e-4147-aa50-6a379877bd1a" />
