@@ -9,6 +9,16 @@
       background-repeat: repeat;
       margin: 20px;
     }
+    <audio id="bg-music" loop>
+  <source src="https://github.com/user-attachments/files/27412770/leberch-creepy-511957.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener("click", function startMusic() {
+    document.getElementById("bg-music").play();
+    document.removeEventListener("click", startMusic);
+  }, { once: true });
+</script>
   h1 {
   color: black;
   font-family: 'Courier New', monospace;
