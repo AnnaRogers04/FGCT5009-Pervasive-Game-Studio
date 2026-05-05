@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scavenger Hunt - Location 2</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #c8b400;
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    font-size: 11px;
+    color: #000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    user-select: none;
+  }
+
+  .window {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: 2px 2px 0 #000;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 16px;
+  }
+
+  .title-bar {
+    background: linear-gradient(to right, #000080, #1084d0);
+    color: #fff;
+    padding: 3px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 11px;
+    height: 22px;
+  }
+
+  .title-bar-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .title-bar-icon {
+    width: 14px;
+    height: 14px;
+    background: #ffff00;
+    border: 1px solid #808080;
+    display: inline-block;
+    font-size: 9px;
+    line-height: 14px;
+    text-align: center;
+    color: #000;
+  }
+
+  .title-bar-buttons {
+    display: flex;
+    gap: 2px;
+  }
+
+  .win-btn {
+    width: 16px;
+    height: 14px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .win-btn:active {
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+  }
+
+  .window-body { padding: 12px; }
+
+  .inset {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    background: #c0c0c0;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .inset-white {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    background: #ffffff;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .image-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .image-frame {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    background: #000;
+    cursor: pointer;
+    transition: transform 0.1s;
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+  }
+
+  .image-frame:hover { transform: scale(1.02); }
+
+  .image-frame img { width: 100%; display: block; }
+
+  .image-caption {
+    background: #c0c0c0;
+    text-align: center;
+    padding: 3px 6px;
+    font-size: 10px;
+    border-top: 1px solid #808080;
+  }
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    height: 22px;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    background: #fff;
+    padding: 2px 6px;
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    font-size: 11px;
+    outline: none;
+    margin-bottom: 8px;
+  }
+
+  .button-row { display: flex; gap: 8px; }
+
+  .win98-btn {
+    min-width: 75px;
+    height: 24px;
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    padding: 0 10px;
+    font-weight: bold;
+  }
+
+  .win98-btn:active {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 1px 9px 0 11px;
+  }
+
+  .win98-btn.primary {
+    outline: 2px solid #000;
+  }
+
+  .status-bar {
+    display: flex;
+    gap: 4px;
+    padding: 2px 4px;
+    border-top: 1px solid #808080;
+    background: #c0c0c0;
+  }
+
+  .status-panel {
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    padding: 1px 6px;
+    font-size: 10px;
+    flex: 1;
+  }
+
+  .dialog-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dialog-overlay.visible { display: flex; }
+
+  .dialog {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: 4px 4px 0 #000;
+    min-width: 300px;
+    max-width: 420px;
+    animation: popup 0.1s ease-out;
+  }
+
+  @keyframes popup {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .dialog-body {
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .dialog-icon { font-size: 32px; flex-shrink: 0; }
+
+  .dialog-text { font-size: 11px; line-height: 1.6; }
+
+  .dialog-text strong { display: block; font-size: 13px; margin-bottom: 4px; }
+
+  .dialog-footer {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #808080;
+  }
+
+  @keyframes shake {
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-6px)}
+    40%{transform:translateX(6px)}
+    60%{transform:translateX(-4px)}
+    80%{transform:translateX(4px)}
+  }
+  .shake { animation: shake 0.4s ease; }
+
+  .hint-text {
+    font-size: 11px;
+    color: #000080;
+    background: #ffffc0;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+    display: none;
+  }
+
+  #clue-section { display: none; }
+</style>
+</head>
+<body>
+
+<div class="window" id="main-window">
+  <div class="window-body">
+
+    <div class="inset-white">
+      <strong>Second Location</strong><br>
+      Where is it? Take a closer look.
+    </div>
+
+    <div class="image-row">
+      <div class="image-frame" onclick="zoomImage(this)">
+        <img src="https://github.com/user-attachments/assets/d16ca3cd-0d69-477f-9572-b2af640d4a0b" alt="Clue Image 15" />
+        <div class="image-caption">&#128247; clue_img_15.jpg &nbsp;[click to zoom]</div>
+      </div>
+      <div class="image-frame" onclick="zoomImage(this)">
+        <img src="https://github.com/user-attachments/assets/4740ca3c-67af-4f32-b1f2-8382decc7f77" alt="Clue Image 16" />
+        <div class="image-caption">&#128247; clue_img_16.jpg &nbsp;[click to zoom]</div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<!-- INPUT WINDOW -->
+<div class="window" id="input-window">
+  <div class="window-body">
+    <div class="inset">
+      <label for="answer-input">Where are you?</label>
+      <input type="text" id="answer-input" placeholder="Type your answer here..." autocomplete="off" />
+      <div class="hint-text" id="hint-text" style="padding: 6px 8px;">&#128161; Hint: Think about rooms that track movement...</div>
+      <div class="button-row" style="margin-top: 4px;">
+        <button class="win98-btn primary" onclick="checkAnswer()">OK</button>
+        <button class="win98-btn" onclick="clearInput()">Clear</button>
+        <button class="win98-btn" onclick="showHint()">Hint</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WRONG DIALOG -->
+<div class="dialog-overlay" id="wrong-dialog">
+  <div class="dialog">
+    <div class="title-bar" style="background: linear-gradient(to right, #800000, #c04040);">
+      <div class="title-bar-text">
+        <span class="title-bar-icon" style="background:#ff0000; color:#fff;">&#10005;</span>
+        Error &mdash; Incorrect Answer
+      </div>
+      <div class="title-bar-buttons">
+        <div class="win-btn" onclick="closeDialog('wrong-dialog')">&#10005;</div>
+      </div>
+    </div>
+    <div class="dialog-body">
+      <div class="dialog-icon">&#128683;</div>
+      <div class="dialog-text">
+        <strong>WRONG ANSWER!</strong>
+        That location doesn't match our records.<br>Study the images more carefully and try again.
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="win98-btn primary" onclick="closeDialog('wrong-dialog')">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- CORRECT DIALOG -->
+<div class="dialog-overlay" id="correct-dialog">
+  <div class="dialog">
+    <div class="title-bar">
+      <div class="title-bar-text">
+        <span class="title-bar-icon" style="background:#00aa00; color:#fff;">&#10003;</span>
+        Location Confirmed!
+      </div>
+      <div class="title-bar-buttons">
+        <div class="win-btn" onclick="closeDialog('correct-dialog')">&#10005;</div>
+      </div>
+    </div>
+    <div class="dialog-body">
+      <div class="dialog-icon">&#127942;</div>
+      <div class="dialog-text">
+        <strong>CORRECT LOCATION!</strong>
+        You've identified the <strong>Motion Capture Room (B32)</strong>.
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="win98-btn primary" onclick="closeDialog('correct-dialog'); revealClue()">Continue &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ZOOM OVERLAY -->
+<div class="dialog-overlay" id="zoom-overlay" onclick="closeDialog('zoom-overlay')" style="background:rgba(0,0,0,0.75);">
+  <div style="max-width:90vw; max-height:90vh; border-top:2px solid #fff; border-left:2px solid #fff; border-right:2px solid #808080; border-bottom:2px solid #808080; box-shadow:4px 4px 0 #000;">
+    <img id="zoom-img" src="" style="display:block; max-width:90vw; max-height:85vh; object-fit:contain;" />
+    <div style="background:#c0c0c0; padding:4px 8px; font-size:10px; text-align:center;">Click anywhere to close</div>
+  </div>
+</div>
+
+<div style="height:40px;"></div>
+
+<script>
+  const VALID_ANSWERS = ['mocap', 'motion capture room', 'b32'];
+
+  function normalise(str) {
+    return str.trim().toLowerCase().replace(/\s+/g, ' ');
+  }
+
+  function checkAnswer() {
+    const input = document.getElementById('answer-input');
+    const val = normalise(input.value);
+    if (!val) return;
+    if (VALID_ANSWERS.includes(val)) {
+      document.getElementById('correct-dialog').classList.add('visible');
+      document.getElementById('status-text').textContent = 'Answer accepted - Location confirmed!';
+      input.style.background = '#ccffcc';
+    } else {
+      document.getElementById('wrong-dialog').classList.add('visible');
+      document.getElementById('status-text').textContent = 'Incorrect answer - try again';
+      input.style.background = '#ffcccc';
+      const win = document.getElementById('input-window');
+      win.classList.add('shake');
+      setTimeout(() => win.classList.remove('shake'), 500);
+    }
+  }
+
+  function clearInput() {
+    const input = document.getElementById('answer-input');
+    input.value = '';
+    input.style.background = '#fff';
+    document.getElementById('hint-text').style.display = 'none';
+    input.focus();
+  }
+
+  function showHint() {
+    const hint = document.getElementById('hint-text');
+    hint.style.display = 'block';
+  }
+
+  function revealClue() {
+    const section = document.getElementById('clue-section');
+    section.style.display = 'block';
+    setTimeout(() => section.scrollIntoView({ behavior: 'smooth' }), 100);
+  }
+
+  function closeDialog(id) {
+    document.getElementById(id).classList.remove('visible');
+  }
+
+  function zoomImage(frame) {
+    const img = frame.querySelector('img');
+    document.getElementById('zoom-img').src = img.src;
+    document.getElementById('zoom-overlay').classList.add('visible');
+  }
+
+  document.getElementById('answer-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') checkAnswer();
+  });
+
+  document.getElementById('answer-input').addEventListener('input', () => {
+    document.getElementById('answer-input').style.background = '#fff';
+  });
+
+</script>
+</body>
+</html>
