@@ -1,4 +1,8 @@
-[leberch-creepy-511957.mp3](https://github.com/user-attachments/files/27412770/leberch-creepy-511957.mp3)
+<img width="4000" height="4000" alt="16" src="https://github.com/user-attachments/assets/4740ca3c-67af-4f32-b1f2-8382decc7f77" />
+<img width="4000" height="4000" alt="15" src="https://github.com/user-attachments/assets/d16ca3cd-0d69-477f-9572-b2af640d4a0b" />
+
+
+
 <img width="432" height="768" alt="book_bg" src="https://github.com/user-attachments/assets/a974825b-7ff7-4a61-bd12-cea49a02b9ac" />
 <img width="270" height="480" alt="glitch" src="https://github.com/user-attachments/assets/58a8958b-c332-40cc-abd3-b0e4e2f3311b" />
 <img width="400" height="400" alt="Rotating_earth" src="https://github.com/user-attachments/assets/10362551-8f01-4a68-9e64-53b086dcd27d" />
