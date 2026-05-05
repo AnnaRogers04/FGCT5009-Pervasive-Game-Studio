@@ -3,75 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UCA Location Hunt</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     html, body {
-      background-color: #1CA698;
-      margin: 0;
-      padding: 0;
+      background-color: #008080;
+      font-family: 'MS Sans Serif', Arial, sans-serif;
+      font-size: 11px;
+      color: #000;
       min-height: 100vh;
+      padding: 20px;
     }
-    p {
-      font-family: 'Times New Roman', Times, serif;
-      color: black;
-      font-weight: bold;
-      font-size: 36px;
-      margin: 0;
-    }
-    .banner {
-      background-color: #148F83;
-      border-top: 2px solid #1CA698;
-      border-bottom: 2px solid #0D6B62;
-      padding: 30px 40px;
-      display: block;
-      width: 100%;
-      box-sizing: border-box;
-      margin-bottom: 30px;
-    }
-    a.win98-link {
-      display: block;
-      font-family: 'Times New Roman', Times, serif;
-      font-weight: bold;
-      font-size: 32px;
-      color: black;
-      text-decoration: none;
-      background-color: #c0c0c0;
+
+    .window {
+      background: #c0c0c0;
       border-top: 2px solid #ffffff;
       border-left: 2px solid #ffffff;
-      border-bottom: 2px solid #808080;
       border-right: 2px solid #808080;
-      padding: 20px 40px;
-      margin-bottom: 15px;
-      width: fit-content;
-      cursor: pointer;
+      border-bottom: 2px solid #808080;
+      box-shadow: 2px 2px 0 #000;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto 16px auto;
     }
+
+    .window-body { padding: 12px; }
+
+    .inset-white {
+      border-top: 2px solid #808080;
+      border-left: 2px solid #808080;
+      border-right: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
+      background: #ffffff;
+      padding: 12px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: bold;
+    }
+
+    a.win98-link {
+      display: block;
+      font-family: 'MS Sans Serif', Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      color: #000;
+      text-decoration: none;
+      background: #c0c0c0;
+      border-top: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      border-right: 2px solid #808080;
+      border-bottom: 2px solid #808080;
+      padding: 10px 16px;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 2px 2px 0 #000;
+    }
+
     a.win98-link:active {
       border-top: 2px solid #808080;
       border-left: 2px solid #808080;
-      border-bottom: 2px solid #ffffff;
       border-right: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
+      padding: 9px 15px 7px 17px;
     }
-    /* Mobile - scale up sizes */
+
     @media (max-width: 768px) {
-      p {
-        font-size: 32px;
-      }
-      a.win98-link {
-        font-size: 28px;
-        padding: 15px 32px;
-      }
+      .inset-white { font-size: 13px; }
+      a.win98-link { font-size: 12px; }
     }
   </style>
-  <title>UCA Location Hunt</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-  <div class="banner">
-    <p>Welcome to our UCA location hunt, follow the clues and images to get to the final location!</p>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <div class="window">
+    <div class="window-body">
+      <div class="inset-white">
+        Welcome to our UCA location hunt, follow the clues and images to get to the final location!
+      </div>
+    </div>
   </div>
 
-  <div style="padding: 0 30px;">
+  <div style="width:100%; max-width:700px; margin: 0 auto; display:flex; flex-direction:column; gap:10px;">
     <a class="win98-link" href="FirstLocation.html">Go to First Location</a>
     <a class="win98-link" href="TerrierBooks.html">Go to Terrier Books</a>
   </div>
+
 </body>
 </html>
