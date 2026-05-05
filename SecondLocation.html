@@ -33,65 +33,6 @@
     margin-bottom: 16px;
   }
 
-  .title-bar {
-    background: linear-gradient(to right, #000080, #1084d0);
-    color: #fff;
-    padding: 3px 4px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: 11px;
-    height: 22px;
-  }
-
-  .title-bar-text {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .title-bar-icon {
-    width: 14px;
-    height: 14px;
-    background: #ffff00;
-    border: 1px solid #808080;
-    display: inline-block;
-    font-size: 9px;
-    line-height: 14px;
-    text-align: center;
-    color: #000;
-  }
-
-  .title-bar-buttons {
-    display: flex;
-    gap: 2px;
-  }
-
-  .win-btn {
-    width: 16px;
-    height: 14px;
-    background: #c0c0c0;
-    border-top: 1px solid #fff;
-    border-left: 1px solid #fff;
-    border-right: 1px solid #808080;
-    border-bottom: 1px solid #808080;
-    font-size: 9px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #000;
-    font-weight: bold;
-  }
-
-  .win-btn:active {
-    border-top: 1px solid #808080;
-    border-left: 1px solid #808080;
-    border-right: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-  }
-
   .window-body { padding: 12px; }
 
   .inset {
@@ -292,7 +233,7 @@
   </div>
 </div>
 
-<!-- INPUT WINDOW -->
+
 <div class="window" id="input-window">
   <div class="window-body">
     <div class="inset">
@@ -308,20 +249,10 @@
   </div>
 </div>
 
-<!-- WRONG DIALOG -->
+
 <div class="dialog-overlay" id="wrong-dialog">
   <div class="dialog">
-    <div class="title-bar" style="background: linear-gradient(to right, #800000, #c04040);">
-      <div class="title-bar-text">
-        <span class="title-bar-icon" style="background:#ff0000; color:#fff;">&#10005;</span>
-        Error &mdash; Incorrect Answer
-      </div>
-      <div class="title-bar-buttons">
-        <div class="win-btn" onclick="closeDialog('wrong-dialog')">&#10005;</div>
-      </div>
-    </div>
     <div class="dialog-body">
-      <div class="dialog-icon">&#128683;</div>
       <div class="dialog-text">
         <strong>WRONG ANSWER!</strong>
         That location doesn't match our records.<br>Study the images more carefully and try again.
@@ -333,7 +264,7 @@
   </div>
 </div>
 
-<!-- CORRECT DIALOG -->
+
 <div class="dialog-overlay" id="correct-dialog">
   <div class="dialog">
     <div class="dialog-body">
@@ -348,7 +279,7 @@
   </div>
 </div>
 
-<!-- ZOOM OVERLAY -->
+
 <div class="dialog-overlay" id="zoom-overlay" onclick="closeDialog('zoom-overlay')" style="background:rgba(0,0,0,0.75);">
   <div style="max-width:90vw; max-height:90vh; border-top:2px solid #fff; border-left:2px solid #fff; border-right:2px solid #808080; border-bottom:2px solid #808080; box-shadow:4px 4px 0 #000;">
     <img id="zoom-img" src="" style="display:block; max-width:90vw; max-height:85vh; object-fit:contain;" />
@@ -390,7 +321,8 @@
   }
 
   function showHint() {
-    document.getElementById('hint-text').style.display = 'block';
+    const hint = document.getElementById('hint-text');
+    hint.style.display = 'block';
   }
 
   function revealClue() {
@@ -418,5 +350,4 @@
   });
 </script>
 </body>
-</html>
 </html>
