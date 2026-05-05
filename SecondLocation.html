@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scavenger Hunt - Location 2</title>
+<title>Second Location</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 20px;
     user-select: none;
   }
@@ -207,18 +207,27 @@
   }
 
   #clue-section { display: none; }
+
+  @media (min-width: 601px) {
+    body { justify-content: center; }
+    .window { max-width: 1000px; }
+    .inset-white { font-size: 18px; padding: 14px; }
+    .image-frame { max-width: 480px; }
+    label { font-size: 15px; }
+    input[type="text"] { height: 32px; font-size: 15px; }
+    .win98-btn { height: 34px; font-size: 15px; min-width: 100px; }
+    .image-caption { font-size: 13px; padding: 5px 8px; }
+  }
 </style>
 </head>
 <body>
 
 <div class="window" id="main-window">
   <div class="window-body">
-
     <div class="inset-white">
       <strong>Second Location</strong><br>
       Where is it? Take a closer look.
     </div>
-
     <div class="image-row">
       <div class="image-frame" onclick="zoomImage(this)">
         <img src="https://github.com/user-attachments/assets/d16ca3cd-0d69-477f-9572-b2af640d4a0b" alt="Clue Image 15" />
@@ -229,10 +238,8 @@
         <div class="image-caption">&#128247; clue_img_16.jpg &nbsp;[click to zoom]</div>
       </div>
     </div>
-
   </div>
 </div>
-
 
 <div class="window" id="input-window">
   <div class="window-body">
@@ -249,7 +256,6 @@
   </div>
 </div>
 
-
 <div class="dialog-overlay" id="wrong-dialog">
   <div class="dialog">
     <div class="dialog-body">
@@ -264,7 +270,6 @@
   </div>
 </div>
 
-
 <div class="dialog-overlay" id="correct-dialog">
   <div class="dialog">
     <div class="dialog-body">
@@ -278,7 +283,6 @@
     </div>
   </div>
 </div>
-
 
 <div class="dialog-overlay" id="zoom-overlay" onclick="closeDialog('zoom-overlay')" style="background:rgba(0,0,0,0.75);">
   <div style="max-width:90vw; max-height:90vh; border-top:2px solid #fff; border-left:2px solid #fff; border-right:2px solid #808080; border-bottom:2px solid #808080; box-shadow:4px 4px 0 #000;">
