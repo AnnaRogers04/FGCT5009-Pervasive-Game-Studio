@@ -10,10 +10,26 @@
     html, body {
       background-color: #008080;
       font-family: 'MS Sans Serif', Arial, sans-serif;
-      font-size: 11px;
       color: #000;
+      min-height: 100%;
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       min-height: 100vh;
-      padding: 20px;
+      padding: 30px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
     .window {
@@ -24,11 +40,9 @@
       border-bottom: 2px solid #808080;
       box-shadow: 2px 2px 0 #000;
       width: 100%;
-      max-width: 700px;
-      margin: 0 auto 16px auto;
     }
 
-    .window-body { padding: 12px; }
+    .window-body { padding: 16px; }
 
     .inset-white {
       border-top: 2px solid #808080;
@@ -36,17 +50,16 @@
       border-right: 2px solid #ffffff;
       border-bottom: 2px solid #ffffff;
       background: #ffffff;
-      padding: 12px;
-      margin-bottom: 10px;
-      font-size: 14px;
-      line-height: 1.6;
+      padding: 16px;
+      font-size: 16px;
+      line-height: 1.7;
       font-weight: bold;
     }
 
     a.win98-link {
       display: block;
       font-family: 'MS Sans Serif', Arial, sans-serif;
-      font-size: 13px;
+      font-size: 16px;
       font-weight: bold;
       color: #000;
       text-decoration: none;
@@ -55,10 +68,11 @@
       border-left: 2px solid #ffffff;
       border-right: 2px solid #808080;
       border-bottom: 2px solid #808080;
-      padding: 10px 16px;
+      padding: 16px 20px;
       cursor: pointer;
       width: 100%;
       box-shadow: 2px 2px 0 #000;
+      text-align: center;
     }
 
     a.win98-link:active {
@@ -66,26 +80,27 @@
       border-left: 2px solid #808080;
       border-right: 2px solid #ffffff;
       border-bottom: 2px solid #ffffff;
-      padding: 9px 15px 7px 17px;
+      padding: 17px 19px 15px 21px;
     }
 
-    @media (max-width: 768px) {
-      .inset-white { font-size: 13px; }
-      a.win98-link { font-size: 12px; }
+    @media (max-width: 600px) {
+      body { align-items: flex-start; padding: 20px 16px; }
+      .inset-white { font-size: 15px; }
+      a.win98-link { font-size: 15px; padding: 18px 16px; }
     }
   </style>
 </head>
 <body>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <div class="window">
-    <div class="window-body">
-      <div class="inset-white">
-        Welcome to our UCA location hunt, follow the clues and images to get to the final location!
+<link href="style.css" rel="stylesheet" type="text/css" />
+  <div class="container">
+    <div class="window">
+      <div class="window-body">
+        <div class="inset-white">
+          Welcome to our UCA location hunt, follow the clues and images to get to the final location!
+        </div>
       </div>
     </div>
-  </div>
 
-  <div style="width:100%; max-width:700px; margin: 0 auto; display:flex; flex-direction:column; gap:10px;">
     <a class="win98-link" href="FirstLocation.html">Go to First Location</a>
     <a class="win98-link" href="TerrierBooks.html">Go to Terrier Books</a>
   </div>
