@@ -5,12 +5,54 @@
   <meta name="viewport" content="width=device-width">
   <title>The Abyss Movie</title>
   <style>
-      .column {
-    float: left;
-    width: 30%;
-    padding: 10px;
-    height: 300px;
-      }
+    {
+  box-sizing: border-box;
+}
+
+/* Style the header */
+header {
+  padding: 5px;
+}
+
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: rgba(0,0,0,0.3);
+  padding: 10px;
+  border: 2px dotted white
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: rgba(0,0,0,0.3);
+  padding: 10px;
+}
+
+/* Style the footer */
+footer {
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+
     body {
       background-image: url("https://github.com/user-attachments/assets/a8b2f945-2566-467d-8871-2ed320414e8e");
       background-size: cover;
@@ -19,10 +61,6 @@
       margin: 10px;
       font-family: Arial, Helvetica, sans-serif;
       color:white;
-    }
-    header {
-      background-image: url("https://github.com/user-attachments/assets/6127ae48-d7a1-42b8-8569-c586cf5f3c9d");
-      padding: 5px;
     }
     p{
       padding:10px
@@ -41,30 +79,35 @@
 </head>
   
 <body>
-  <header style="height:275; width:1050"> 
+  <header style="height:275; width:1050">
+    <img src="https://github.com/user-attachments/assets/6127ae48-d7a1-42b8-8569-c586cf5f3c9d" alt="ABYSS Banner">
   </header>
   
   <hr class="dotted">
   
-  <h1> <img src="https://github.com/user-attachments/assets/851a2261-18d0-4c53-8e2e-8b94285eacb8" alt="ABYSS" style= "float:left;width:100px;height:100px;">WELCOME TO THE ABYSS<img src="https://github.com/user-attachments/assets/851a2261-18d0-4c53-8e2e-8b94285eacb8" alt="ABYSS" style= "float:right;width:100px;height:100px;"></h1>
+  <h1 style="text-align:center;"> <img src="https://github.com/user-attachments/assets/851a2261-18d0-4c53-8e2e-8b94285eacb8" alt="ABYSS" style= "float:left;width:100px;height:100px;">WELCOME TO THE ABYSS<img src="https://github.com/user-attachments/assets/851a2261-18d0-4c53-8e2e-8b94285eacb8" alt="ABYSS" style= "float:right;width:100px;height:100px;"></h1>
   
   <hr class="dotted">
   
   <h2 style="text-align:center;"> filler text </h2>
-
-  <div class="column" style="background-color: rgba(0,0,0,0.3); border: 2px dotted white; ">
+  
+<section>
+  
+  <nav>
     <h2> Get Excited!</h2>
     <p> lorem ipsum dolor set smth smth</p>
-  </div>
+  </nav>
   
-  <div class="column">
+  <article>
     <img src="https://github.com/user-attachments/assets/65d27d8e-ff0f-4383-804c-6936a8f60715" alt="ABYSS POSTER" height=614 width=434>
-  </div>
+  </article>
 
-  <div class="column" style="background-color: rgba(0,0,0,0.3); border: 2px dotted white; ">
+  <nav>
     <h2> Learn more about the Behind the Scenes!</h2>
-  </div>
-
+  </nav>
+  
+</section>
+  
   <hr class="dotted">
   
   <div>
