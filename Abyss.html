@@ -2,24 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Abyss Movie</title>
   <style>
-    {
+    * {
   box-sizing: border-box;
 }
-
 /* Style the header */
 header {
   padding: 5px;
+  width: 100%;
 }
-
+header img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 /* Container for flexboxes */
 section {
   display: -webkit-flex;
   display: flex;
 }
-
 /* Style the navigation menu */
 nav {
   -webkit-flex: 1;
@@ -29,7 +32,6 @@ nav {
   padding: 10px;
   border: 2px dotted white
 }
-
 /* Style the content */
 article {
   -webkit-flex: 3;
@@ -38,21 +40,16 @@ article {
   background-color: rgba(0,0,0,0.3);
   padding: 10px;
 }
-
+article img {
+  max-width: 100%;
+  height: auto;
+}
 /* Style the footer */
 footer {
   padding: 10px;
   text-align: center;
   color: white;
 }
-
-/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
-@media (max-width: 600px) {
-  section {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-
     body {
       background-image: url("https://github.com/user-attachments/assets/a8b2f945-2566-467d-8871-2ed320414e8e");
       background-size: cover;
@@ -69,17 +66,26 @@ footer {
     hr.dotted {
       border-top: 3px dotted white;
     }
-
     /* Solid border */
     hr.solid {
       border-top: 3px solid white;
     }
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  body {
+    background-attachment: scroll;
+  }
+}
     
   </style>
 </head>
   
 <body>
-  <header style="height:275; width:1050">
+  <header>
     <img src="https://github.com/user-attachments/assets/6127ae48-d7a1-42b8-8569-c586cf5f3c9d" alt="ABYSS Banner">
   </header>
   
@@ -101,7 +107,6 @@ footer {
   <article>
     <img src="https://github.com/user-attachments/assets/65d27d8e-ff0f-4383-804c-6936a8f60715" alt="ABYSS POSTER" height=614 width=434>
   </article>
-
   <nav>
     <h2> Learn more about the Behind the Scenes!</h2>
   </nav>
