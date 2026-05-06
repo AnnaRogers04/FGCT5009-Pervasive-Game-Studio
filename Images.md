@@ -11,6 +11,18 @@
 
 
 
+<img width="1050" height="1868" alt="Ana_Yellow" src="https://github.com/user-attachments/assets/9ae6ae51-d34e-4589-b6e5-51629b78837a" />
+<img width="1050" height="1868" alt="Ana_White" src="https://github.com/user-attachments/assets/1340946a-1216-414f-bc07-62655384f15b" />
+<img width="1050" height="1868" alt="Ana_Red" src="https://github.com/user-attachments/assets/90692830-5618-45ce-af3a-6e98f5795335" />
+<img width="1050" height="1868" alt="Ana_Purple" src="https://github.com/user-attachments/assets/746641cb-801c-4452-bbc0-11947a2d3a09" />
+<img width="1050" height="1868" alt="Ana_Pink" src="https://github.com/user-attachments/assets/5ea65d35-41e9-40ed-9cb6-8a160b2f380b" />
+<img width="1050" height="1868" alt="Ana_Grey" src="https://github.com/user-attachments/assets/794095f6-6736-4d87-a54a-0ba6d0b8bff8" />
+<img width="1050" height="1868" alt="Ana_Green" src="https://github.com/user-attachments/assets/bfe2cb9b-a023-42c0-a980-a328b0da475b" />
+<img width="1050" height="1868" alt="Ana_Classic" src="https://github.com/user-attachments/assets/87413a35-7b32-4b67-beb0-cb4c9f1c59bf" />
+<img width="1050" height="1868" alt="Ana_Brown" src="https://github.com/user-attachments/assets/d505885c-c063-40ce-b610-15a775a3498f" />
+<img width="1050" height="1868" alt="Ana_Blue" src="https://github.com/user-attachments/assets/ee8cf949-cc40-46eb-b4fe-5ce51627eabc" />
+<img width="1050" height="1868" alt="Ana_Black" src="https://github.com/user-attachments/assets/0294fbad-690e-4b16-ab7c-f5c877d80bcb" />
+
 <img width="432" height="768" alt="book_bg" src="https://github.com/user-attachments/assets/a974825b-7ff7-4a61-bd12-cea49a02b9ac" />
 <img width="270" height="480" alt="glitch" src="https://github.com/user-attachments/assets/58a8958b-c332-40cc-abd3-b0e4e2f3311b" />
 <img width="400" height="400" alt="Rotating_earth" src="https://github.com/user-attachments/assets/10362551-8f01-4a68-9e64-53b086dcd27d" />
