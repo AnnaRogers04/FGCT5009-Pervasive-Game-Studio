@@ -1,3 +1,11 @@
+<img width="800" height="1280" alt="Ana_Low fidelity" src="https://github.com/user-attachments/assets/12356ae4-1007-4d61-b3c9-7d95eb22d052" />
+<img width="800" height="1280" alt="Ana_Journey ahead" src="https://github.com/user-attachments/assets/b2f141aa-70d2-462e-9bae-a8e6555aa108" />
+<img width="800" height="1280" alt="Ana_Cold zone" src="https://github.com/user-attachments/assets/409cf86b-8ff8-4e63-9ede-a9b5c81472b5" />
+<img width="800" height="1280" alt="Ana_Tulip crazy" src="https://github.com/user-attachments/assets/a8d187e2-6906-4acd-bbea-53556dd7c53c" />
+<img width="500" height="520" alt="Ana_Terrier Books Logo" src="https://github.com/user-attachments/assets/560fdf93-27e6-43bf-af00-746dddd8ee35" />
+<img width="500" height="520" alt="Ana_bookPNG" src="https://github.com/user-attachments/assets/adc6c32b-ad99-40f7-982a-385ab6e9094f" />
+
+
 <img width="4000" height="4000" alt="16" src="https://github.com/user-attachments/assets/4740ca3c-67af-4f32-b1f2-8382decc7f77" />
 <img width="4000" height="4000" alt="15" src="https://github.com/user-attachments/assets/d16ca3cd-0d69-477f-9572-b2af640d4a0b" />
 
