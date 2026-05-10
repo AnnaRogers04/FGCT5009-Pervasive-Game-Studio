@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Wuggey Institue of Creation and Craft</title>
+<style>
+    * {
+  box-sizing: border-box;
+}
+/* Style the header */
+header {
+  padding: 5px;
+  width: 100%;
+}
+header img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 10px;
+}
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  padding: 10px;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  display: flex;
+}
+/* Style the footer */
+footer {
+  padding: 10px;
+  text-align: center;
+}
+    body {
+      margin: 10px;
+      font-family: serif;
+      color: black;
+    }
+    p{
+      padding:10px
+    }
+    /* Solid border */
+    hr.solid {
+      border-top: 3px solid white;
+    }
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  body {
+    background-attachment: scroll;
+  }
+  h1 {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  h1 img {
+    float: none;
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+    
+  </style>
+</head>
+
+  <body>
+    <h1> Wuggey Institue of Creation and Craft</h1>
+   
+    <h3> Welcome to The Wuggey Institue of Art and Design. One of Europe's largest up and coming independent colleges specialising in art, design, visual communication, 3d crafts, media studies, and more with the power to award it's own degrees </h3>
+
+    <section>
+      <nav>
+        <h4 style="color:FireBrick;"> Our Mission</h4>
+        <h4 style="color:DarkKakhi;"> What Makes us Different</h4>
+        <h4 style="color:RebeccaPurple;"> Study Opportunities</h4>
+        <h4 style="color:MediumSlateBlue;"> Academic Services</h4>
+        <h4 style="color:YellowGreen;"> Student Services</h4>
+      </nav>
+      
+      <nav>
+        <h4 style="color:MediumSeaGreen;"> How to Apply</h4>
+        <h4 style="color:DarkSlateBlue;"> Location</h4>
+        <h4 style="color:SaddleBrown;"> News and Events</h4>
+        <h4 style="color:DarkCyan;"> Research Projects</h4>
+        <h4 style="color:MediumVioletRed;"> Email Back</h4>
+      </nav>
+      
+    </section>
+
+    
+  </body>
+  
+</html>
