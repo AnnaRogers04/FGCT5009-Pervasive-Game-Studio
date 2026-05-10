@@ -1,13 +1,14 @@
 
 <!-- BIRDS BIRDS BIRDS -->
+<img width="500" height="234" alt="birdGif" src="https://github.com/user-attachments/assets/f19a051f-2fbe-4ce2-8ca2-722a9a13c5f9" />
 <img width="378" height="378" alt="Ana_Bird7" src="https://github.com/user-attachments/assets/307dc924-ae08-4e30-98ad-6dda342ac01b" />
-<img width="164" height="164" alt="Ana_BirdBgTile" src="https://github.com/user-attachments/assets/ac449026-0f85-48e0-909e-c79a44242dc6" />
 <img width="1024" height="768" alt="Ana_Bird6" src="https://github.com/user-attachments/assets/8b6c3c26-0b64-45ef-9f8f-f9b2a230ae67" />
 <img width="600" height="899" alt="Ana_Bird5" src="https://github.com/user-attachments/assets/b4bb9061-5f49-4a94-ab58-1b6d102d277f" />
 <img width="1170" height="780" alt="Ana_Bird4" src="https://github.com/user-attachments/assets/bafe7227-8781-4a74-b694-e545a47631de" />
 <img width="1255" height="762" alt="Ana_Bird3" src="https://github.com/user-attachments/assets/8441eaeb-16bc-4a2d-98ae-ef991666ef7b" />
 <img width="1170" height="780" alt="Ana_Bird2" src="https://github.com/user-attachments/assets/0f2dffbd-d6f5-4964-8cb6-42e08919e57a" />
 <img width="600" height="467" alt="Ana_Bird1" src="https://github.com/user-attachments/assets/95680622-5559-4723-99b9-3f57fedbbfde" />
+<img width="164" height="164" alt="Ana_BirdBgTile" src="https://github.com/user-attachments/assets/ac449026-0f85-48e0-909e-c79a44242dc6" />
 
 
 <!-- ABYSS MOVIE -->
