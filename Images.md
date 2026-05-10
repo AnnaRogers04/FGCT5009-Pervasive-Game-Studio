@@ -1,4 +1,6 @@
+
 <!-- BIRDS BIRDS BIRDS -->
+<img width="378" height="378" alt="Ana_Bird7" src="https://github.com/user-attachments/assets/307dc924-ae08-4e30-98ad-6dda342ac01b" />
 <img width="164" height="164" alt="Ana_BirdBgTile" src="https://github.com/user-attachments/assets/ac449026-0f85-48e0-909e-c79a44242dc6" />
 <img width="1024" height="768" alt="Ana_Bird6" src="https://github.com/user-attachments/assets/8b6c3c26-0b64-45ef-9f8f-f9b2a230ae67" />
 <img width="600" height="899" alt="Ana_Bird5" src="https://github.com/user-attachments/assets/b4bb9061-5f49-4a94-ab58-1b6d102d277f" />
