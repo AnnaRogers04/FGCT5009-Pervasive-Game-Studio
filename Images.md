@@ -1,3 +1,7 @@
+<!-- BIRDS BIRDS BIRDS -->
+<img width="164" height="164" alt="Ana_BirdBgTile" src="https://github.com/user-attachments/assets/ac449026-0f85-48e0-909e-c79a44242dc6" />
+
+
 <!-- ABYSS MOVIE -->
 <img width="500" height="520" alt="Annette_Fridge Magnet 2" src="https://github.com/user-attachments/assets/851a2261-18d0-4c53-8e2e-8b94285eacb8" />
 <img width="500" height="520" alt="Annette_Fridge Magnet 1" src="https://github.com/user-attachments/assets/780af33e-f183-44f7-9d9d-6dd5232ce738" />
