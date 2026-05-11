@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Third Location</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #87CEEB;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  h1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #ffff66;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 16px;
+    text-shadow: 1px 1px 2px #000;
+  }
+
+  .content-panel {
+    background: #d4d0c8;
+    border: 2px solid #808080;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    min-height: 300px;
+  }
+
+  .content-panel h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 14px;
+  }
+
+  .clue-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .clue-image {
+    width: 150px;
+    flex-shrink: 0;
+    border: 1px solid #808080;
+  }
+
+  .clue-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #000;
+  }
+
+  .inset {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    background: #c0c0c0;
+    padding: 10px;
+    margin-top: 16px;
+  }
+
+  label {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 13px;
+  }
+
+  .win98-btn {
+    min-width: 60px;
+    height: 24px;
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0 10px;
+    font-weight: bold;
+  }
+
+  .win98-btn:active {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+  }
+
+  .win98-btn.primary { outline: 2px solid #000; }
+
+  .hint-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    color: #000080;
+    background: #ffffc0;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+    display: none;
+  }
+
+  .dialog-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dialog-overlay.visible { display: flex; }
+
+  .dialog {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: 4px 4px 0 #000;
+    min-width: 300px;
+    max-width: 420px;
+    animation: popup 0.1s ease-out;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  @keyframes popup {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .dialog-body { padding: 16px; }
+  .dialog-text { font-size: 13px; line-height: 1.6; }
+  .dialog-text strong { display: block; font-size: 15px; margin-bottom: 4px; }
+
+  .dialog-footer {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #808080;
+  }
+
+  @keyframes shake {
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-6px)}
+    40%{transform:translateX(6px)}
+    60%{transform:translateX(-4px)}
+    80%{transform:translateX(4px)}
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .option-btn {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 6px;
+    text-align: center;
+    color: #000;
+  }
+
+  .option-btn:active {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+  }
+
+  .shake { animation: shake 0.4s ease; }
+</style>
+</head>
+<body>
+
+<h1>Third Location</h1>
+
+<div class="content-panel">
+  <h2>Where is this?</h2>
+  <div class="clue-row">
+    <img class="clue-image" src="https://github.com/user-attachments/assets/ae2e3ed6-3ffd-4268-8eb6-d37d13974b5b" alt="Clue Image" />
+    <div class="clue-text">
+      Take a look at the image.<br><br>
+      Where in the building does this lead to?
+    </div>
+  </div>
+
+  <div class="inset" id="input-section">
+    <label>Where are you?</label>
+    <div class="hint-text" id="hint-text">&#128161; Think about where you go when you need something printed...</div>
+    <div class="options-grid">
+      <button class="option-btn" onclick="checkAnswer('campus registry')">Campus Registry</button>
+      <button class="option-btn" onclick="checkAnswer('equipment hire')">Equipment Hire</button>
+      <button class="option-btn" onclick="checkAnswer('photography wing')">Photography Wing</button>
+      <button class="option-btn" onclick="checkAnswer('print bureau')">Print Bureau</button>
+      <button class="option-btn" onclick="checkAnswer('textiles wing')">Textiles Wing</button>
+      <button class="option-btn" onclick="checkAnswer('hint')" style="background:transparent; border-color:#808080; color:#000080; font-style:italic;">Hint</button>
+    </div>
+  </div>
+</div>
+
+<div class="dialog-overlay" id="wrong-dialog">
+  <div class="dialog">
+    <div class="dialog-body">
+      <div class="dialog-text">
+        <strong>WRONG ANSWER!</strong>
+        That location doesn't match our records.<br>Study the image more carefully and try again.
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="win98-btn primary" onclick="closeDialog('wrong-dialog')">OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="dialog-overlay" id="correct-dialog">
+  <div class="dialog">
+    <div class="dialog-body">
+      <div class="dialog-text">
+        <strong>CORRECT LOCATION!</strong>
+        Well done — head to your next location.
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="win98-btn primary" onclick="closeDialog('correct-dialog')">Continue &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const CORRECT = 'print bureau';
+
+  function checkAnswer(val) {
+    if (val === 'hint') {
+      showHint();
+      return;
+    }
+    if (val === CORRECT) {
+      document.getElementById('correct-dialog').classList.add('visible');
+    } else {
+      document.getElementById('wrong-dialog').classList.add('visible');
+      document.getElementById('input-section').classList.add('shake');
+      setTimeout(() => document.getElementById('input-section').classList.remove('shake'), 500);
+    }
+  }
+
+  function showHint() {
+    document.getElementById('hint-text').style.display = 'block';
+  }
+
+  function closeDialog(id) {
+    document.getElementById(id).classList.remove('visible');
+  }
+</script>
+</body>
+</html>
