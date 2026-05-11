@@ -57,3 +57,5 @@
 <img width="1059" height="1610" alt="paper3" src="https://github.com/user-attachments/assets/62d07149-d6b8-4567-858c-023a4f9125ae" />
 <img width="1200" height="1555" alt="paper2" src="https://github.com/user-attachments/assets/e99ec523-d55f-4be7-9189-f897b6b2f5d0" />
 <img width="736" height="1308" alt="paper1" src="https://github.com/user-attachments/assets/58676b7e-409f-4a31-8a7c-3558b0439bd3" />
+<img width="4000" height="4000" alt="14" src="https://github.com/user-attachments/assets/ae2e3ed6-3ffd-4268-8eb6-d37d13974b5b" />
+
