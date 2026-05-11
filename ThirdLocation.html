@@ -239,7 +239,7 @@
   </div>
 
   <div class="inset" id="input-section">
-    <label>Where are you?</label>
+    <label>Where does this hallway lead to?</label>
     <div class="hint-text" id="hint-text">&#128161; Think about where you go when you need something printed...</div>
     <div class="options-grid">
       <button class="option-btn" onclick="checkAnswer('campus registry')">Campus Registry</button>
@@ -255,3 +255,55 @@
 <div class="dialog-overlay" id="wrong-dialog">
   <div class="dialog">
     <div class="dialog-body">
+      <div class="dialog-text">
+        <strong>WRONG ANSWER!</strong>
+        That location isnt correct.<br>Study the image more carefully and try again.
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="win98-btn primary" onclick="closeDialog('wrong-dialog')">OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="dialog-overlay" id="correct-dialog">
+  <div class="dialog">
+    <div class="dialog-body">
+      <div class="dialog-text">
+        <strong>CORRECT LOCATION!</strong>
+        Well done, head to your next location.
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="win98-btn primary" onclick="closeDialog('correct-dialog')">Continue &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const CORRECT = 'print bureau';
+
+  function checkAnswer(val) {
+    if (val === 'hint') {
+      showHint();
+      return;
+    }
+    if (val === CORRECT) {
+      document.getElementById('correct-dialog').classList.add('visible');
+    } else {
+      document.getElementById('wrong-dialog').classList.add('visible');
+      document.getElementById('input-section').classList.add('shake');
+      setTimeout(() => document.getElementById('input-section').classList.remove('shake'), 500);
+    }
+  }
+
+  function showHint() {
+    document.getElementById('hint-text').style.display = 'block';
+  }
+
+  function closeDialog(id) {
+    document.getElementById(id).classList.remove('visible');
+  }
+</script>
+</body>
+</html>
