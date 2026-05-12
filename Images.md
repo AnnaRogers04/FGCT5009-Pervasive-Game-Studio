@@ -1,4 +1,12 @@
 
+<!-- CLUE MAPS -->
+<img width="1563" height="1728" alt="IMG_2336" src="https://github.com/user-attachments/assets/9fdfb554-a928-496d-847d-77f907777f4f" />
+
+
+
+
+
+
 <!-- BIRDS BIRDS BIRDS -->
 <img width="500" height="234" alt="birdGif" src="https://github.com/user-attachments/assets/f19a051f-2fbe-4ce2-8ca2-722a9a13c5f9" />
 <img width="378" height="378" alt="Ana_Bird7" src="https://github.com/user-attachments/assets/307dc924-ae08-4e30-98ad-6dda342ac01b" />
