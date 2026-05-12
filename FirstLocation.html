@@ -177,24 +177,25 @@ input {
 <body>
 <h1>First Location</h1>
 <div class="win98-panel">
-  <p>Where is this?</p>
+  <p>Where is the password</p>
+  <div class="win98-panel">
 </div>
 
 <br><br>
 <div class="win98-panel">
-  <label for="Location">Location:</label>
-  <input type="text" id="Location" name="Location" required>
+  <label for="Location">Password:</label>
+  <input type="text" id="Password" name="Password" required>
 </div>
 
 <br>
 <button id="submit-btn" onclick="checkPassword()">Submit</button>
-<span id="error-msg">Incorrect location. Try again!</span>
-<span id="success-msg">Correct! Well done!</span>
+<span id="error-msg">Incorrect Password</span>
+<span id="success-msg">Correct Password</span>
 
 <br>
 <div id="image-container">
   <img id="location-image" width="350" height="771" alt="Screenshot 2026-04-29 164243" src="https://github.com/user-attachments/assets/3b9b4144-f540-4cd6-9f41-dcafef1d0aea" />
-  <div id="hint-text">Somewhere upstairs, a narrow blue corridor, a red light may appear above the doorframe from time to time.</div>
+  <div id="hint-text">Look at the image, somewhere upstairs in a blue corridoor will show the password</div>
 </div>
 
 <br><br>
@@ -202,11 +203,7 @@ input {
 
 <script>
 const validPasswords = [
-  "journalism",
-  "journalism corridor",
-  "recording corridor",
-  "journalism hallway",
-  "Media Hallway"
+  "NickP"
 ];
 
 const input = document.getElementById("Location");
