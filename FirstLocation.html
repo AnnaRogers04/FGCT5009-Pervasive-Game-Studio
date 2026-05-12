@@ -143,7 +143,7 @@
     border-left: 2px solid #808080;
     border-right: 2px solid #ffffff;
     border-bottom: 2px solid #ffffff;
-    background: #89CFF0;
+    background: #000;
     cursor: pointer;
     position: relative;
     width: 100%;
@@ -152,24 +152,7 @@
   .image-frame img { width: 100%; display: block; }
   .image-frame img.hinted { visibility: hidden; }
 
-  #hint-overlay {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #000;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    font-size: 13px;
-    text-align: center;
-    width: 80%;
-    pointer-events: none;
-    padding: 10px;
-    line-height: 1.6;
-  }
-
-  #hint-overlay.visible { display: block; }
+  #hint-overlay { display: none !important; }
 
   .image-caption {
     background: #c0c0c0;
@@ -262,13 +245,13 @@
   @media (min-width: 601px) {
     .window { max-width: 800px; }
     h1 { font-size: 56px; }
-    label { font-size: 16px; }
-    input[type="text"], input[type="password"] { height: 32px; font-size: 16px; }
-    .win98-btn { height: 34px; font-size: 15px; }
+    .inset-white { font-size: 17px; }
+    label { font-size: 17px; }
+    input[type="text"], input[type="password"] { height: 32px; font-size: 17px; }
+    .win98-btn { height: 34px; font-size: 16px; }
     .image-row { flex-direction: row; }
     .image-frame { flex: 1; }
-    .hint-text { font-size: 15px; }
-    #hint-overlay { font-size: 16px; }
+    .hint-text { font-size: 16px; }
   }
 </style>
 </head>
@@ -281,7 +264,8 @@
 
     <div class="inset-white">
       <strong>First Location</strong><br>
-      Where is this? Enter the username and password to continue.
+      Where is this?<br>
+      Enter the Username and Password to continue.
     </div>
 
     <div class="inset" id="input-section">
@@ -373,12 +357,7 @@
 
   function toggleHint() {
     const hint = document.getElementById('hint-text');
-    const img = document.getElementById('location-image');
-    const overlay = document.getElementById('hint-overlay');
     hint.style.display = hint.style.display === 'block' ? 'none' : 'block';
-    img.classList.toggle('hinted');
-    overlay.classList.toggle('visible');
-    document.getElementById('image-container').style.backgroundColor = img.classList.contains('hinted') ? '#89CFF0' : '';
   }
 
   function zoomImage(src) {
