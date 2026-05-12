@@ -1,232 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>First Location</title>
-  <style>
-    body{
-      background-image: url("https://github.com/user-attachments/assets/fe7049c7-ac8e-4147-aa50-6a379877bd1a");
-      background-repeat: repeat;
-      margin: 20px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Location</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-image: url("https://github.com/user-attachments/assets/fe7049c7-ac8e-4147-aa50-6a379877bd1a");
+    background-repeat: repeat;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    user-select: none;
+  }
+
   h1 {
-  color: black;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
-  font-size: 96px;
-}
-.win98-panel {
-  background-color: #c0c0c0;
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-bottom: 2px solid #808080;
-  border-right: 2px solid #808080;
-  padding: 10px 16px;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-p {
-  font-family: 'Times New Roman', Times, serif;
-  color: black;
-  font-weight: bold;
-  font-size: 48px;
-  margin: 0;
-}
-label {
-  font-family: 'Times New Roman', Times, serif;
-  color: black;
-  font-weight: bold;
-  font-size: 44px;
-}
-input {
-  font-family: 'Times New Roman', Times, serif;
-  color: black;
-  font-weight: bold;
-  font-size: 40px;
-  background-color: white;
-  border-top: 2px solid #808080;
-  border-left: 2px solid #808080;
-  border-bottom: 2px solid #ffffff;
-  border-right: 2px solid #ffffff;
-}
-.hints-button {
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-bottom: 2px solid #808080;
-  border-right: 2px solid #808080;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 40px;
-  font-weight: bold;
-  margin: 4px 2px;
-  cursor: pointer;
-  background-color: #c0c0c0;
-  font-family: 'Times New Roman', Times, serif;
-}
-.hints-button:active {
-  border-top: 2px solid #808080;
-  border-left: 2px solid #808080;
-  border-bottom: 2px solid #ffffff;
-  border-right: 2px solid #ffffff;
-}
-#submit-btn {
-  margin-top: 10px;
-  padding: 15px 32px;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  font-family: 'Times New Roman', Times, serif;
-  background-color: #c0c0c0;
-  color: black;
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-bottom: 2px solid #808080;
-  border-right: 2px solid #808080;
-}
-#submit-btn:active {
-  border-top: 2px solid #808080;
-  border-left: 2px solid #808080;
-  border-bottom: 2px solid #ffffff;
-  border-right: 2px solid #ffffff;
-}
-#image-container {
-  position: relative;
-  display: inline-block;
-  margin-top: 15px;
-}
-#location-image {
-  display: block;
-  transition: filter 0.3s ease;
-}
-#location-image.hinted {
-  visibility: hidden;
-}
-#image-container.hinted {
-  background-color: #89CFF0;
-}
-#hint-text {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
-  font-size: 28px;
-  text-align: center;
-  width: 80%;
-  pointer-events: none;
-  padding: 20px;
-}
-#hint-text.visible {
-  display: block;
-}
-#error-msg {
-  color: red;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
-  font-size: 40px;
-  display: none;
-  margin-top: 5px;
-}
-#success-msg {
-  color: green;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
-  font-size: 40px;
-  display: none;
-  margin-top: 5px;
-}
-/* Desktop only - scale down sizes */
-@media (min-width: 769px) {
-  h1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #000;
     font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
   }
-  p {
-    font-size: 24px;
+
+  .window {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: 2px 2px 0 #000;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 16px;
   }
+
+  .window-body { padding: 12px; }
+
+  .inset {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    background: #c0c0c0;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .inset-white {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    background: #ffffff;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
   label {
-    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 13px;
   }
-  input {
-    font-size: 20px;
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    height: 26px;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    background: #fff;
+    padding: 2px 6px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    outline: none;
+    margin-bottom: 10px;
   }
-  .hints-button {
-    font-size: 20px;
-    padding: 10px 20px;
+
+  .button-row { display: flex; gap: 8px; margin-top: 4px; }
+
+  .win98-btn {
+    min-width: 75px;
+    height: 28px;
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0 10px;
+    font-weight: bold;
   }
-  #submit-btn {
-    font-size: 20px;
-    padding: 10px 20px;
+
+  .win98-btn:active {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
   }
-  #error-msg {
-    font-size: 20px;
+
+  .win98-btn.primary { outline: 2px solid #000; }
+
+  .hint-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    color: #000080;
+    background: #ffffc0;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+    display: none;
   }
-  #success-msg {
-    font-size: 20px;
+
+  .image-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
   }
-  #hint-text {
-    font-size: 18px;
+
+  .image-frame {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    background: #89CFF0;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
   }
-}
+
+  .image-frame img { width: 100%; display: block; }
+  .image-frame img.hinted { visibility: hidden; }
+
+  #hint-overlay {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    width: 80%;
+    pointer-events: none;
+    padding: 10px;
+    line-height: 1.6;
+  }
+
+  #hint-overlay.visible { display: block; }
+
+  .image-caption {
+    background: #c0c0c0;
+    text-align: center;
+    padding: 3px 6px;
+    font-size: 10px;
+    border-top: 1px solid #808080;
+  }
+
+  .dialog-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dialog-overlay.visible { display: flex; }
+
+  .dialog {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: 4px 4px 0 #000;
+    min-width: 300px;
+    max-width: 420px;
+    animation: popup 0.1s ease-out;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  @keyframes popup {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .dialog-body { padding: 16px; }
+  .dialog-text { font-size: 13px; line-height: 1.6; }
+  .dialog-text strong { display: block; font-size: 15px; margin-bottom: 4px; }
+
+  .dialog-footer {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #808080;
+  }
+
+  @keyframes shake {
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-6px)}
+    40%{transform:translateX(6px)}
+    60%{transform:translateX(-4px)}
+    80%{transform:translateX(4px)}
+  }
+
+  .shake { animation: shake 0.4s ease; }
+
+  .zoom-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .zoom-overlay.visible { display: flex; }
+
+  .zoom-overlay img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 2px solid #fff;
+    display: block;
+  }
+
+  .zoom-close {
+    background: #c0c0c0;
+    padding: 4px 10px;
+    font-size: 11px;
+    text-align: center;
+    border-top: 1px solid #808080;
+    cursor: pointer;
+  }
+
+  @media (min-width: 601px) {
+    .window { max-width: 800px; }
+    h1 { font-size: 56px; }
+    label { font-size: 16px; }
+    input[type="text"], input[type="password"] { height: 32px; font-size: 16px; }
+    .win98-btn { height: 34px; font-size: 15px; }
+    .image-row { flex-direction: row; }
+    .image-frame { flex: 1; }
+    .hint-text { font-size: 15px; }
+    #hint-overlay { font-size: 16px; }
+  }
 </style>
 </head>
 <body>
+
 <h1>First Location</h1>
-<div class="win98-panel">
-  <p>What is the password</p>
+
+<div class="window" id="main-window">
+  <div class="window-body">
+
+    <div class="inset-white">
+      <strong>First Location</strong><br>
+      Where is this? Enter the username and password to continue.
+    </div>
+
+    <div class="inset" id="input-section">
+      <label for="username-input">Username:</label>
+      <input type="text" id="username-input" placeholder="Enter username..." autocomplete="off" />
+      <label for="password-input">Password:</label>
+      <input type="password" id="password-input" placeholder="Enter password..." autocomplete="off" />
+      <div class="hint-text" id="hint-text">&#128161; Look at the image, somewhere upstairs in a blue corridor...</div>
+      <div class="button-row">
+        <button class="win98-btn primary" onclick="checkAnswer()">Submit</button>
+        <button class="win98-btn" onclick="clearInputs()">Clear</button>
+        <button class="win98-btn" onclick="toggleHint()">Hint</button>
+      </div>
+    </div>
+
+    <div class="image-row">
+      <div class="image-frame" onclick="zoomImage('https://github.com/user-attachments/assets/3b9b4144-f540-4cd6-9f41-dcafef1d0aea')" id="image-container">
+        <img id="location-image" src="https://github.com/user-attachments/assets/3b9b4144-f540-4cd6-9f41-dcafef1d0aea" alt="Location Image" loading="eager" />
+        <div id="hint-overlay">Look at the image, somewhere upstairs in a blue corridor will show the password.</div>
+        <div class="image-caption">&#128247; clue_img_1.jpg &nbsp;[click to zoom]</div>
+      </div>
+      <div class="image-frame" onclick="zoomImage('https://github.com/user-attachments/assets/9fdfb554-a928-496d-847d-77f907777f4f')">
+        <img src="https://github.com/user-attachments/assets/9fdfb554-a928-496d-847d-77f907777f4f" alt="Clue Image 2" loading="eager" />
+        <div class="image-caption">&#128247; clue_img_2.jpg &nbsp;[click to zoom]</div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<br><br>
-<div class="win98-panel">
-  <label for="Location">Password:</label>
-  <input type="text" id="Password" name="Password" required>
+<div class="dialog-overlay" id="wrong-dialog">
+  <div class="dialog">
+    <div class="dialog-body">
+      <div class="dialog-text">
+        <strong>INCORRECT!</strong>
+        That username or password is wrong.<br>Try again.
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="win98-btn primary" onclick="closeDialog('wrong-dialog')">OK</button>
+    </div>
+  </div>
 </div>
 
-<br>
-<button id="submit-btn" onclick="checkPassword()">Submit</button>
-<span id="error-msg">Incorrect Password</span>
-<span id="success-msg">Correct Password</span>
-
-<br>
-<div id="image-container">
-  <img id="location-image" width="350" height="771" alt="Screenshot 2026-04-29 164243" src="https://github.com/user-attachments/assets/3b9b4144-f540-4cd6-9f41-dcafef1d0aea" />
-  <div id="hint-text">Look at the image, somewhere upstairs in a blue corridoor will show the password</div>
+<div class="dialog-overlay" id="correct-dialog">
+  <div class="dialog">
+    <div class="dialog-body">
+      <div class="dialog-text">
+        <strong>CORRECT!</strong>
+        Well done, head to your next location.
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="win98-btn primary" onclick="closeDialog('correct-dialog')">Continue &rarr;</button>
+    </div>
+  </div>
 </div>
 
-<br><br>
-<button class="hints-button" onclick="toggleHint()">Hints</button>
+<div class="zoom-overlay" id="zoom-overlay" onclick="closeZoom()">
+  <div>
+    <img id="zoom-img" src="" alt="Zoomed Image" />
+    <div class="zoom-close">Click anywhere to close</div>
+  </div>
+</div>
+
+<div style="height:20px;"></div>
 
 <script>
-const validPasswords = [
-  "NickP"
-];
+  const VALID_USERNAME = 'THE_COLD_ZONE';
+  const VALID_PASSWORD = 'NickP';
 
-const input = document.getElementById("Location");
-const errorMsg = document.getElementById("error-msg");
-const successMsg = document.getElementById("success-msg");
-const locationImage = document.getElementById("location-image");
-const hintText = document.getElementById("hint-text");
-
-function checkPassword() {
-  const val = input.value.trim().toLowerCase();
-  if (validPasswords.includes(val)) {
-    errorMsg.style.display = "none";
-    successMsg.style.display = "inline";
-  } else {
-    successMsg.style.display = "none";
-    errorMsg.style.display = "inline";
+  function checkAnswer() {
+    const username = document.getElementById('username-input').value.trim();
+    const password = document.getElementById('password-input').value.trim();
+    if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+      document.getElementById('correct-dialog').classList.add('visible');
+    } else {
+      document.getElementById('wrong-dialog').classList.add('visible');
+      document.getElementById('input-section').classList.add('shake');
+      setTimeout(() => document.getElementById('input-section').classList.remove('shake'), 500);
+    }
   }
-}
 
-function toggleHint() {
-  locationImage.classList.toggle("hinted");
-  document.getElementById("image-container").classList.toggle("hinted");
-  hintText.classList.toggle("visible");
-}
+  function clearInputs() {
+    document.getElementById('username-input').value = '';
+    document.getElementById('password-input').value = '';
+    document.getElementById('username-input').focus();
+  }
+
+  function toggleHint() {
+    const hint = document.getElementById('hint-text');
+    const img = document.getElementById('location-image');
+    const overlay = document.getElementById('hint-overlay');
+    hint.style.display = hint.style.display === 'block' ? 'none' : 'block';
+    img.classList.toggle('hinted');
+    overlay.classList.toggle('visible');
+    document.getElementById('image-container').style.backgroundColor = img.classList.contains('hinted') ? '#89CFF0' : '';
+  }
+
+  function zoomImage(src) {
+    document.getElementById('zoom-img').src = src;
+    document.getElementById('zoom-overlay').classList.add('visible');
+  }
+
+  function closeZoom() {
+    document.getElementById('zoom-overlay').classList.remove('visible');
+  }
+
+  function closeDialog(id) {
+    document.getElementById(id).classList.remove('visible');
+  }
+
+  document.getElementById('password-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') checkAnswer();
+  });
 </script>
 </body>
 </html>
