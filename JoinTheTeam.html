@@ -18,13 +18,42 @@
     <h1 style = "font-size:60px ; color:blue; background-color:rgba(0,255,255,0.2); text-align:centre" ;> <img src="https://github.com/user-attachments/assets/560fdf93-27e6-43bf-af00-746dddd8ee35" alt="Terrier Books Logo" style= "float:left;width:100px;height:100px;">
     New Terrier Book Shop!
     </h1>
-
-    <div style=" background-color: rgba(255,255,255,0.5); border:2px solid Blue; margin: 10px ">
-
-<!-- LOGIN FORM  -->
-      
-    </div>
     
+<!-- LOGIN FORM  -->
+    
+    <div style=" background-color: rgba(255,255,255,0.5); border:2px solid Blue; margin: 10px ">
+      <label for="username-input">Username:</label>
+      <input type="text" id="username-input" placeholder="Enter username:" autocomplete="off" />
+      <label for="password-input">Password:</label>
+      <input type="password" id="password-input" placeholder="Enter password:" autocomplete="off" />
+    </div>
+    <div>
+      <button onclick="checkAnswer()">Submit</button>
+      <button onclick="clearInputs()">Clear</button>
+    </div>
+    <script>
+      const VALID_USERNAME = 'ygargarin1934';
+      const VALID_PASSWORD = 'v1957';
+
+      function checkAnswer() {
+        const username = document.getElementById('username-input').value.trim();
+        const password = document.getElementById('password-input').value.trim();
+        if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+          <meta http-equiv="Refresh" content="0.3; url=Gallery.html" />
+        } 
+        else {
+          clearInputs()
+        }
+      }
+
+      function clearInputs() {
+        document.getElementById('username-input').value = '';
+        document.getElementById('password-input').value = '';
+        document.getElementById('username-input').focus();
+      }
+    </script>
+  
+
   </body>
 </html>
 
