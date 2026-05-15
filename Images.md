@@ -1,6 +1,9 @@
 
 <!-- CLUE MAPS -->
 <img width="1563" height="1728" alt="IMG_2336" src="https://github.com/user-attachments/assets/9fdfb554-a928-496d-847d-77f907777f4f" />
+<img width="1563" height="1728" alt="IMG_2335" src="https://github.com/user-attachments/assets/2790c333-210d-4942-8e17-60894a3fbb06" />
+
+
 
 
 
@@ -67,6 +70,7 @@
 <img width="736" height="1308" alt="paper1" src="https://github.com/user-attachments/assets/58676b7e-409f-4a31-8a7c-3558b0439bd3" />
 <img width="4000" height="4000" alt="14" src="https://github.com/user-attachments/assets/ae2e3ed6-3ffd-4268-8eb6-d37d13974b5b" />
 <img width="3239" height="2059" alt="Clouds" src="https://github.com/user-attachments/assets/36f9f989-fecc-419d-9c5e-ce1f3fa146d8" />
+<img width="4000" height="4000" alt="3 (1)" src="https://github.com/user-attachments/assets/6495768f-54f9-47b1-b009-8d81da45b20d" />
 
 
 
