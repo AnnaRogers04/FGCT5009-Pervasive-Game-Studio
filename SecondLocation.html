@@ -303,7 +303,7 @@
   <div class="terminal-body">
     <label for="answer-input">&gt; ENTER LOCATION:</label>
     <input type="text" id="answer-input" placeholder="type here..." autocomplete="off" />
-    <div class="hint-text" id="hint-text">&#9654; HINT: Think about rooms with computers...</div>
+    <div class="hint-text" id="hint-text">&#9654; Near where photos are developed</div>
     <div class="button-row">
       <button class="term-btn primary" onclick="checkAnswer()">SUBMIT</button>
       <button class="term-btn" onclick="clearInput()">CLEAR</button>
@@ -330,12 +330,13 @@
   <div class="dialog">
     <div class="dialog-body">
       <div class="dialog-text">
-        <strong>CORRECT LOCATION!</strong>
-        Well done, head to your next location.
+       <strong>CORRECT LOCATION!</strong>
+Well done, head to the webpage for the next clue.<br><br>
+        <a href="https://annarogers04.github.io/FGCT5009-Pervasive-Game-Studio/BirdWatching.html" style="color:#000080; font-family:'Share Tech Mono',monospace; font-size:12px; text-decoration:underline;">&#9654; Click here to go to the next stage</a>
       </div>
     </div>
     <div class="dialog-footer">
-      <button class="term-btn primary" onclick="closeDialog('correct-dialog')">CONTINUE &gt;</button>
+      <button class="term-btn primary" onclick="window.location.href='https://annarogers04.github.io/FGCT5009-Pervasive-Game-Studio/BirdWatching.html'">CONTINUE &gt;</button>
     </div>
   </div>
 </div>
