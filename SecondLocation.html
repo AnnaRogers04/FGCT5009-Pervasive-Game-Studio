@@ -1,1 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second Location</title>
+<link rel="preload" as="image" href="https://github.com/user-attachments/assets/6495768f-54f9-47b1-b009-8d81da45b20d">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
 
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #0a0a1a;
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    font-size: 13px;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 24px 16px;
+  }
+
+  h1 {
+    font-family: 'VT323', monospace;
+    color: #00ff50;
+    font-size: 52px;
+    text-align: center;
+    margin-bottom: 6px;
+    text-shadow: 0 0 10px #00ff50, 0 0 20px #00ff50;
+    letter-spacing: 4px;
+  }
+
+  .terminal-window {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: 2px 2px 0 #000;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 14px;
+  }
+
+  .terminal-body { padding: 12px; background: #c0c0c0; }
+  .prompt-line { display: none; }
+
+  .clue-text {
+    color: #000;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+    background: #fff;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    padding: 8px 10px;
+  }
+
+  .image-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+
+  .image-frame {
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    cursor: pointer;
+    transition: transform 0.1s;
+    background: #000;
+    color: #fff;
+  }
+
+  .image-frame:hover { transform: scale(1.02); }
+  .image-frame img { width: 100%; display: block; }
+
+  .image-caption {
+    background: #c0c0c0;
+    color: #000;
+    text-align: center;
+    padding: 3px 6px;
+    font-size: 10px;
+    border-top: 1px solid #808080;
+    letter-spacing: 0;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: #000;
+    letter-spacing: 0;
+    font-weight: bold;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    height: 24px;
+    background: #fff;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    color: #000;
+    padding: 2px 6px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    outline: none;
+    margin-bottom: 10px;
+    caret-color: #000;
+  }
+
+  input[type="text"]:focus { box-shadow: none; }
+
+  .button-row { display: flex; gap: 8px; }
+
+  .term-btn {
+    min-width: 70px;
+    height: 24px;
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    color: #000;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0 10px;
+    letter-spacing: 0;
+    transition: none;
+  }
+
+  .term-btn:hover { background: #c0c0c0; }
+  .term-btn:active {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    background: #c0c0c0;
+    color: #000;
+  }
+  .term-btn.primary { outline: 2px solid #000; }
+
+  .hint-text {
+    font-size: 11px;
+    color: #000080;
+    background: #ffffc0;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+    display: none;
+    letter-spacing: 0;
+  }
+
+  .dialog-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dialog-overlay.visible { display: flex; }
+
+  .dialog {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: 4px 4px 0 #000;
+    min-width: 300px;
+    max-width: 420px;
+    animation: popup 0.15s ease-out;
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  .dialog.error { border-color: #808080; box-shadow: 4px 4px 0 #000; }
+
+  @keyframes popup {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .dialog-body { padding: 16px; }
+  .dialog-text { font-size: 12px; line-height: 1.7; color: #000; }
+  .dialog-text.err { color: #000; }
+  .dialog-text strong { display: block; font-size: 13px; margin-bottom: 6px; letter-spacing: 0; }
+
+  .dialog-footer {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #808080;
+  }
+
+  @keyframes shake {
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-6px)}
+    40%{transform:translateX(6px)}
+    60%{transform:translateX(-4px)}
+    80%{transform:translateX(4px)}
+  }
+  .shake { animation: shake 0.4s ease; }
+
+  .zoom-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+  }
+  .zoom-overlay.visible { display: flex; }
+  .zoom-overlay img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 2px solid #fff;
+    display: block;
+  }
+  .zoom-close {
+    background: #c0c0c0;
+    color: #000;
+    padding: 4px 10px;
+    font-size: 10px;
+    text-align: center;
+    border-top: 1px solid #808080;
+    letter-spacing: 0;
+    cursor: pointer;
+  }
+
+  @media (min-width: 601px) {
+    body { justify-content: center; }
+    h1 { font-size: 72px; }
+    .terminal-window { max-width: 1000px; }
+    .clue-text { font-size: 18px; padding: 12px 14px; }
+    .image-frame { max-width: 480px; }
+    .image-caption { font-size: 13px; padding: 5px 8px; }
+    label { font-size: 15px; }
+    input[type="text"] { height: 34px; font-size: 15px; }
+    .term-btn { height: 34px; font-size: 14px; min-width: 90px; }
+    .hint-text { font-size: 13px; }
+    .terminal-body { padding: 16px; }
+  }
+
+  @media (max-width: 600px) {
+    body { justify-content: flex-start; padding: 16px; }
+    h1 { font-size: 42px; letter-spacing: 2px; }
+    .terminal-window { max-width: 100%; }
+    .image-row { flex-direction: column; }
+    .image-frame { max-width: 100%; min-width: unset; }
+    .clue-text { font-size: 13px; }
+    input[type="text"] { height: 30px; font-size: 13px; }
+    .term-btn { height: 30px; font-size: 12px; min-width: 60px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Second Location</h1>
+
+<div class="terminal-window" id="main-window">
+  <div class="terminal-body">
+    <div class="prompt-line">&gt; <span>LOADING CLUE DATA...</span></div>
+    <div class="clue-text">
+      Second Location<br>
+      Where is it? Take a closer look.
+    </div>
+    <div class="image-row">
+      <div class="image-frame" onclick="zoomImage('https://github.com/user-attachments/assets/6495768f-54f9-47b1-b009-8d81da45b20d')">
+        <img src="https://github.com/user-attachments/assets/6495768f-54f9-47b1-b009-8d81da45b20d" alt="Location Clue" loading="eager" />
+        <div class="image-caption">clue_img_01.jpg &nbsp;[ click to zoom ]</div>
+      </div>
+      <div class="image-frame" onclick="zoomImage('https://github.com/user-attachments/assets/2790c333-210d-4942-8e17-60894a3fbb06')">
+        <img src="https://github.com/user-attachments/assets/2790c333-210d-4942-8e17-60894a3fbb06" alt="Hint Image" loading="eager" />
+        <div class="image-caption">clue_img_02.jpg &nbsp;[ click to zoom ]</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="terminal-window" id="input-window">
+  <div class="terminal-body">
+    <label for="answer-input">&gt; ENTER LOCATION:</label>
+    <input type="text" id="answer-input" placeholder="type here..." autocomplete="off" />
+    <div class="hint-text" id="hint-text">&#9654; HINT: Think about rooms with computers...</div>
+    <div class="button-row">
+      <button class="term-btn primary" onclick="checkAnswer()">SUBMIT</button>
+      <button class="term-btn" onclick="clearInput()">CLEAR</button>
+      <button class="term-btn" onclick="showHint()">HINT</button>
+    </div>
+  </div>
+</div>
+
+<div class="dialog-overlay" id="wrong-dialog">
+  <div class="dialog error">
+    <div class="dialog-body">
+      <div class="dialog-text err">
+        <strong>WRONG ANSWER!</strong>
+        That location doesn't match.<br>Study the images and try again.
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="term-btn primary" onclick="closeDialog('wrong-dialog')">RETRY</button>
+    </div>
+  </div>
+</div>
+
+<div class="dialog-overlay" id="correct-dialog">
+  <div class="dialog">
+    <div class="dialog-body">
+      <div class="dialog-text">
+        <strong>CORRECT LOCATION!</strong>
+        Well done, head to your next location.
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button class="term-btn primary" onclick="closeDialog('correct-dialog')">CONTINUE &gt;</button>
+    </div>
+  </div>
+</div>
+
+<div class="zoom-overlay" id="zoom-overlay" onclick="closeZoom()">
+  <div>
+    <img id="zoom-img" src="" alt="Zoomed" />
+    <div class="zoom-close">[ CLICK ANYWHERE TO CLOSE ]</div>
+  </div>
+</div>
+
+<div style="height:20px;"></div>
+
+<script>
+  const VALID_ANSWERS = ['g162', 'g 162', 'room g162', 'computer room', 'computer lab'];
+
+  function normalise(str) {
+    return str.trim().toLowerCase().replace(/\s+/g, ' ');
+  }
+
+  function checkAnswer() {
+    const input = document.getElementById('answer-input');
+    const val = normalise(input.value);
+    if (!val) return;
+    if (VALID_ANSWERS.includes(val)) {
+      document.getElementById('correct-dialog').classList.add('visible');
+      input.style.background = '#ccffcc';
+      input.style.color = '#000';
+    } else {
+      document.getElementById('wrong-dialog').classList.add('visible');
+      input.style.background = '#ffcccc';
+      input.style.color = '#000';
+      const win = document.getElementById('input-window');
+      win.classList.add('shake');
+      setTimeout(() => win.classList.remove('shake'), 500);
+    }
+  }
+
+  function clearInput() {
+    const input = document.getElementById('answer-input');
+    input.value = '';
+    input.style.background = '#fff';
+    input.style.color = '#000';
+    document.getElementById('hint-text').style.display = 'none';
+    input.focus();
+  }
+
+  function showHint() {
+    document.getElementById('hint-text').style.display = 'block';
+  }
+
+  function closeDialog(id) {
+    document.getElementById(id).classList.remove('visible');
+  }
+
+  function zoomImage(src) {
+    document.getElementById('zoom-img').src = src;
+    document.getElementById('zoom-overlay').classList.add('visible');
+  }
+
+  function closeZoom() {
+    document.getElementById('zoom-overlay').classList.remove('visible');
+  }
+
+  document.getElementById('answer-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') checkAnswer();
+  });
+
+  document.getElementById('answer-input').addEventListener('input', () => {
+    document.getElementById('answer-input').style.background = '#fff';
+    document.getElementById('answer-input').style.color = '#000';
+  });
+</script>
+</body>
+</html>
